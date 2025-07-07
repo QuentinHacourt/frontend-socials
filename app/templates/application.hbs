@@ -1,7 +1,10 @@
 {{page-title "FrontendSocials"}}
+<nav>
+  <LinkTo @route="index">Home</LinkTo>
+  <LinkTo @route="register">Register</LinkTo>
+  <LinkTo @route="login">Login</LinkTo>
+</nav>
 
-{{! The following component displays Ember's default welcome message. }}
-<WelcomePage />
-{{! Feel free to remove this! }}
+<h1>Welcome!</h1>
 
 {{outlet}}
