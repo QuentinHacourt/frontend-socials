@@ -1,10 +1,19 @@
 {{page-title "FrontendSocials"}}
-<nav>
-  <LinkTo @route="index">Home</LinkTo>
-  <LinkTo @route="register">Register</LinkTo>
-  <LinkTo @route="login">Login</LinkTo>
-</nav>
+<BsNavbar @type="light" @backgroundColor="light" as |navbar|>
+  <LinkTo @route="index" class="navbar-brand">Socials</LinkTo>
+  <navbar.toggle />
+  <navbar.content>
+    <navbar.nav as |nav|>
+      <nav.item>
+        <nav.link-to @route="register">Register</nav.link-to>
+      </nav.item>
+      <nav.item>
+        <nav.link-to @route="login">Login</nav.link-to>
+      </nav.item>
+    </navbar.nav>
+  </navbar.content>
+</BsNavbar>
 
-<h1>Welcome!</h1>
-
-{{outlet}}
+<div class="container">
+  {{outlet}}
+</div>
