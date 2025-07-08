@@ -6,9 +6,12 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     'ember-bootstrap': {
       bootstrapVersion: 5,
-      importBootstrapCSS: true,
+      importBootstrapCSS: false,
+      importbootstrapJS: true,
+      insertEmberWormholeElementToDom: false,
     },
   });
 
+  app.import('node_modules/bootstrap/dist/css/bootstrap.min.css');
   return app.toTree();
 };
