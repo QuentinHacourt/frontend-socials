@@ -5,6 +5,9 @@
   <navbar.content>
     <navbar.nav as |nav|>
       <nav.item>
+        <nav.link-to @route="users">Users</nav.link-to>
+      </nav.item>
+      <nav.item>
         <nav.link-to @route="register">Register</nav.link-to>
       </nav.item>
       <nav.item>
@@ -14,6 +17,8 @@
   </navbar.content>
 </BsNavbar>
 
-<div class="container">
-  {{outlet}}
-</div>
+<main>
+  <div class="container">
+    {{outlet}}
+  </div>
+</main>

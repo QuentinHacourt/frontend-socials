@@ -1,0 +1,8 @@
+{{page-title "New"}}
+<h1>Create New User</h1>
+<form {{on "submit" (fn this.saveUser @model)}}>
+  <label for="name">Name:</label>
+  <Input @value={{@model.name}} id="name" required />
+  <button type="submit">Save User</button>
+</form>
+<LinkTo @route="users">Cancel</LinkTo>}

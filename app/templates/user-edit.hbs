@@ -1,0 +1,9 @@
+{{page-title "Edit"}}
+<h1>Edit User: {{@model.name}}</h1>
+<form {{on "submit" (fn this.updateUser @model)}}>
+  <label for="edit-name">Name:</label>
+  <Input @value={{@model.name}} id="edit-name" required />
+  <button type="submit">Update User</button>
+</form>
+<button type="button" {{on "click" (fn this.deleteUser @model)}}>Delete User</button>
+<LinkTo @route="users.show" @model={{@model}}>Cancel</LinkTo>
