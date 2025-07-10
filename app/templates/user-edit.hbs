@@ -6,4 +6,4 @@
   <button type="submit">Update User</button>
 </form>
 <button type="button" {{on "click" (fn this.deleteUser @model)}}>Delete User</button>
-<LinkTo @route="users.show" @model={{@model}}>Cancel</LinkTo>
+<LinkTo @route="user-details" @model={{@model}}>Cancel</LinkTo>
