@@ -6,24 +6,30 @@
   <div class="row">
     {{#each @model as |post|}}
       <div class="col-md-12 mb-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <h5 class="card-title">{{post.content}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              Posted by:
-              <LinkTo
-                @route="user-details"
-                @model={{post.author}}
-              >{{post.author.name}}</LinkTo>
-            </h6>
-            <p class="card-text">
-              <small class="text-muted">
-                Posted on:
-                {{moment-format post.created "DD/MM/YY HH:mm"}}
-              </small>
-            </p>
+        <LinkTo
+          @route="post-details"
+          @model={{post}}
+          class="card shadow-sm h-100 text-decoration-none text-dark"
+        >
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{post.content}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                Posted by:
+                <LinkTo
+                  @route="user-details"
+                  @model={{post.author}}
+                >{{post.author.name}}</LinkTo>
+              </h6>
+              <p class="card-text">
+                <small class="text-muted">
+                  Posted on:
+                  {{moment-format post.created "DD/MM/YY HH:mm"}}
+                </small>
+              </p>
+            </div>
           </div>
-        </div>
+        </LinkTo>
       </div>
     {{else}}
       <div class="col-12">

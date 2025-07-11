@@ -1,0 +1,7 @@
+{{page-title "Post | {{@model.created}}"}}
+<p>Author: {{@model.author.name}}</p>
+<p>
+  Date:
+  {{moment-format @model.created "DD/MM/YY HH:mm"}}
+</p>
+<p>Message: {{@model.content}}</p>

@@ -13,5 +13,5 @@ Router.map(function () {
   this.route('user-new', { path: '/users/new' });
   this.route('user-details', { path: '/users/:user_id' });
   this.route('user-edit', { path: '/users/:user_id/edit' });
-  this.route('posts');
+  this.route('post-details', { path: '/posts/:post_id' });
 });
