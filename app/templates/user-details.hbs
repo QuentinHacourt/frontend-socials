@@ -2,5 +2,6 @@
 <h1>User Details: {{@model.name}}</h1>
 <p>ID: {{@model.id}}</p>
 <p>Name: {{@model.name}}</p>
+<p>Description: {{@model.profile.description}}</p>
 <LinkTo @route="user-edit" @model={{@model}}>Edit this user</LinkTo>
 <LinkTo @route="users">Back to Users List</LinkTo>
