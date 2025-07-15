@@ -1,7 +1,10 @@
 {{page-title "Index"}}
 
 <div class="container mt-4">
-  <h2>Hello {{@model.user.name}}</h2>
+  {{#if @model.account.name}}
+    <h2>Hello {{@model.account.name}}</h2>
+  {{/if}}
+
   <h2 class="mb-4">Your Feed</h2>
 
   <div class="row">

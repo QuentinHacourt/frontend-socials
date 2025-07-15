@@ -6,12 +6,12 @@ export default class IndexRoute extends Route {
   @service currentSession;
 
   async model() {
-    const user = this.currentSession.signedInPerson;
+    const account = this.currentSession.signedInPerson;
     const posts = await this.store.findAll('post', { include: ['author'] });
 
     const dataForTemplate = {
       posts: posts,
-      user: user,
+      account: account,
     };
 
     return dataForTemplate;
