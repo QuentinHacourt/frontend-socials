@@ -29,4 +29,9 @@ export default class IndexController extends Controller {
       }
     }
   }
+
+  @action
+  async deletePost(post) {
+    await store.deleteRecord('post', post);
+  }
 }

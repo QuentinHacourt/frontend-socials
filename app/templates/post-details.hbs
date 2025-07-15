@@ -1,17 +1,17 @@
-{{page-title "Post | {{@model.created}}"}}
+{{page-title "Post | {{@model.post.created}}"}}
 <div class="container mt-4">
   <LinkTo @route="index" class="btn btn-secondary mb-3">Back to All Posts</LinkTo>
 
   <div class="card shadow-sm mb-4">
     <div class="card-body">
-      <h3 class="card-title display-6 mb-3">{{@model.content}}</h3>
+      <h3 class="card-title display-6 mb-3">{{@model.post.content}}</h3>
       <h6 class="card-subtitle mb-2 text-muted">
         Posted by:
-        {{#if @model.author}}
+        {{#if @model.post.author}}
           <LinkTo
             @route="user-details"
-            @model={{@model.author}}
-          >{{@model.author.name}}</LinkTo>
+            @model={{@model.post.author}}
+          >{{@model.post.author.name}}</LinkTo>
         {{else}}
           Unknown Author
         {{/if}}
@@ -19,16 +19,23 @@
       <p class="card-text">
         <small class="text-muted">
           Posted on:
-          {{moment-format @model.created "DD/MM/YY HH:mm"}}
+          {{moment-format @model.post.created "DD/MM/YY HH:mm"}}
         </small>
+        <BsButton
+          type="button"
+          @type="danger"
+          @onClick={{fn this.deletePost @model.post}}
+        >
+          Delete Post
+        </BsButton>
       </p>
     </div>
   </div>
 
-  <h4 class="mb-3">Replies ({{@model.replies.length}})</h4>
+  <h4 class="mb-3">Replies ({{@model.post.replies.length}})</h4>
 
   <div class="list-group">
-    {{#each @model.replies as |reply|}}
+    {{#each @model.post.replies as |reply|}}
       <div
         class="list-group-item list-group-item-action mb-2 rounded shadow-sm"
       >
