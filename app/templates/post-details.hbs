@@ -1,7 +1,59 @@
 {{page-title "Post | {{@model.created}}"}}
-<p>Author: {{@model.author.name}}</p>
-<p>
-  Date:
-  {{moment-format @model.created "DD/MM/YY HH:mm"}}
-</p>
-<p>Message: {{@model.content}}</p>
+<div class="container mt-4">
+  <LinkTo @route="index" class="btn btn-secondary mb-3">Back to All Posts</LinkTo>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h3 class="card-title display-6 mb-3">{{@model.content}}</h3>
+      <h6 class="card-subtitle mb-2 text-muted">
+        Posted by:
+        {{#if @model.author}}
+          <LinkTo
+            @route="user-details"
+            @model={{@model.author}}
+          >{{@model.author.name}}</LinkTo>
+        {{else}}
+          Unknown Author
+        {{/if}}
+      </h6>
+      <p class="card-text">
+        <small class="text-muted">
+          Posted on:
+          {{moment-format @model.created "DD/MM/YY HH:mm"}}
+        </small>
+      </p>
+    </div>
+  </div>
+
+  <h4 class="mb-3">Replies ({{@model.replies.length}})</h4>
+
+  <div class="list-group">
+    {{#each @model.replies as |reply|}}
+      <div
+        class="list-group-item list-group-item-action mb-2 rounded shadow-sm"
+      >
+        <p class="mb-1">{{reply.content}}</p>
+        <small class="text-muted">
+          Replied by:
+          {{#if reply.author}}
+            <LinkTo
+              @route="user-details"
+              @model={{reply.author}}
+            >{{reply.author.name}}</LinkTo>
+          {{else}}
+            Unknown Replier
+          {{/if}}
+          on
+          {{moment-format reply.created "DD/MM/YY HH:mm"}}
+        </small>
+      </div>
+    {{else}}
+      <div class="alert alert-info" role="alert">
+        No replies yet. Be the first to comment!
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="mt-4">
+  </div>
+</div>

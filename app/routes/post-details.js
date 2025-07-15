@@ -6,7 +6,7 @@ export default class PostDetailsRoute extends Route {
 
   model(params) {
     return this.store.findRecord('post', params.post_id, {
-      include: ['author'],
+      include: ['author', 'replies', 'replies.author'],
     });
   }
 }
