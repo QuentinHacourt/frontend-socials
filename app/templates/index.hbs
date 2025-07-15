@@ -3,6 +3,19 @@
 <div class="container mt-4">
   {{#if @model.account.name}}
     <h2>Hello {{@model.account.name}}</h2>
+    <BsForm
+      @formLayout="vertical"
+      @model={{this}}
+      @onSubmit={{this.submit}}
+      as |form|
+    >
+      <form.element
+        @controlType="textarea"
+        @label="What's on your mind?"
+        @property="text"
+      />
+      <form.submitButton>Tell the World!</form.submitButton>
+    </BsForm>
   {{/if}}
 
   <h2 class="mb-4">Your Feed</h2>
