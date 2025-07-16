@@ -1,6 +1,12 @@
 {{page-title "Index"}}
 
 <div class="container mt-4">
+  <h2>Most recent post!</h2>
+  <p>{{@model.mostRecent.[0].content}}</p>
+
+  <h2>Most popular post!</h2>
+  <p>{{@model.mostPopular.[0].content}}</p>
+
   {{#if @model.account.name}}
     <h2>Hello {{@model.account.name}}</h2>
     <BsForm
