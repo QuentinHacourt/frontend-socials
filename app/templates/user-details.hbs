@@ -1,7 +1,10 @@
 {{page-title "Show"}}
-<h1>User Details: {{@model.name}}</h1>
-<p>ID: {{@model.id}}</p>
-<p>Name: {{@model.name}}</p>
-<p>Description: {{@model.profile.description}}</p>
-<LinkTo @route="user-edit" @model={{@model}}>Edit this user</LinkTo>
+<h1>User Details: {{@model.user.name}}</h1>
+<p>ID: {{@model.user.id}}</p>
+<p>Name: {{@model.user.name}}</p>
+<p>Description: {{@model.user.profile.description}}</p>
+{{#if @model.isCurrentUser}}
+  <p>Birth Date: {{@model.user.name}}</p>
+{{/if}}
+<LinkTo @route="user-edit" @model={{@model.user}}>Edit this user</LinkTo>
 <LinkTo @route="users">Back to Users List</LinkTo>
