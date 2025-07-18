@@ -1,0 +1,20 @@
+{{page-title "Birthday"}}
+
+{{#if this.model.user.birthday}}
+  <p>
+    birthday:
+    {{this.model.user.birthday}}
+  </p>
+{{/if}}
+
+{{#if this.model.user}}
+  <BsForm
+    @formLayout="horizontal"
+    @model={{this.model.user}}
+    @onSubmit={{this.addBirthday}}
+    as |form|
+  >
+    <form.element @controlType="date" @label="Birthday" @property="birthday" />
+    <form.submitButton>Submit</form.submitButton>
+  </BsForm>
+{{/if}}

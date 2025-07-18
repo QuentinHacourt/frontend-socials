@@ -15,4 +15,5 @@ Router.map(function () {
   this.route('user-edit', { path: '/users/:user_id/edit' });
   this.route('post-details', { path: '/posts/:post_id' });
   this.route('trending');
+  this.route('birthday');
 });
