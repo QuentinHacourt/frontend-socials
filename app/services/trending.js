@@ -7,11 +7,9 @@ export default class TrendingService extends Service {
 
   async load() {
     this.mostPopularPost = await this.fetchRequest(
-      'http://localhost:80/trending/most-popular-post',
+      '/trending/most-popular-post',
     );
-    this.mostRecentPost = await this.fetchRequest(
-      'http://localhost:80/trending/most-recent-post',
-    );
+    this.mostRecentPost = await this.fetchRequest('/trending/most-recent-post');
   }
 
   async fetchRequest(url) {
